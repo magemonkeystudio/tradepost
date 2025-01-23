@@ -11,7 +11,7 @@
 // DO NOT PASTE them in a support request.   
 //
 // Refer to the following link for proper config.yml setup fields -
-// https://github.com/WooMinecraft/WooMinecraft#config   
+// https://github.com/magemonkeystudio/tradepost/blob/Master/src/main/resources/config.yml 
 //
 // YOU **MUST** ACTIVATE DEBUG IN YOUR CONFIG AND PROVIDE **THAT** LOG
 //

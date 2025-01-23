@@ -1,17 +1,16 @@
 name: ${project.name}
 main: ${mainClass}
 version: ${project.version}
-authors: [JerryWood, TekkitCommando, Phillmac, Jerzean]
+authors: [ goflish, MaksyKun ]
 description: ${project.description}
-website:  http://woominecraft.com
 api-version: 1.13
 
 commands:
-  woo:
-    description: Check
+  tradepost:
+    description: Check for existent donations.
     usage: |
         /<command> check - check for donations.
 permissions:
-  woo.admin:
+  tradepost.admin:
     default: op
-    description: Allows the player (or console) to use the woo commands.
+    description: Allows the player (or console) to use the tradepost commands.

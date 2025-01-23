@@ -5,7 +5,7 @@ general:
   reloaded: "Plugin reloaded!"
   saved_conf: "Configuratie Opgeslagen"
   key: "Sleutel"
-  cpy_key: "Kopieër deze sleutel en plaats hem in uw WooMinecraft options panel in WordPress"
+  cpy_key: "Kopieër deze sleutel en plaats hem in uw TradePost options panel in WordPress"
   key_set: "Je sleutel is al vastgelegd, controleer je configuratie file"
   none_avail: "Geen aankopen beschikbaar - Probeer het later nog eens."
   processed: "Alle aankopen zijn verwerkt."

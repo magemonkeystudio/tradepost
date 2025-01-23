@@ -5,7 +5,7 @@ general:
   reloaded: "Eklenti yeniden başlatıldı."
   saved_conf: "Ayar kaydedildi."
   key: "Anahtar"
-  cpy_key: "Bu anahtarı WordPress içerisinde bulunan WooMinecraft ayarlarının içine yerleştir."
+  cpy_key: "Bu anahtarı WordPress içerisinde bulunan TradePost ayarlarının içine yerleştir."
   key_set: "Anahtarın zaten kayıtlı. Ayar dosyasını kontrol et."
   none_avail: "Mevcut satın alım bulunmuyor. Daha sonra tekrar deneyin."
   processed: "Tüm satın alımlar işlendi."

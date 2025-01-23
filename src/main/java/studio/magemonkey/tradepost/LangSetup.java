@@ -1,4 +1,4 @@
-package com.plugish.woominecraft;
+package studio.magemonkey.tradepost;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;

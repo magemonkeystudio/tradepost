@@ -7,19 +7,19 @@
  * Copyright 2014 All rights Reserved
  *
  */
-package com.plugish.woominecraft;
+package studio.magemonkey.tradepost;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.plugish.woominecraft.pojo.Order;
-import com.plugish.woominecraft.pojo.WMCPojo;
-import com.plugish.woominecraft.pojo.WMCProcessedOrders;
 import okhttp3.*;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitScheduler;
+import studio.magemonkey.tradepost.pojo.Order;
+import studio.magemonkey.tradepost.pojo.WMCPojo;
+import studio.magemonkey.tradepost.pojo.WMCProcessedOrders;
 
 import java.io.*;
 import java.net.MalformedURLException;
@@ -28,13 +28,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public final class WooMinecraft extends JavaPlugin {
+public final class TradePost extends JavaPlugin {
 
-    static WooMinecraft instance;
+    static TradePost instance;
 
     private YamlConfiguration l10n;
 
-    public static final String NL = System.getProperty("line.separator");
+    public static final String NL = System.lineSeparator();
 
     /**
      * Stores the player data to prevent double checks.
@@ -50,7 +50,7 @@ public final class WooMinecraft extends JavaPlugin {
         /*
         if (!Bukkit.getOnlineMode() && !Bukkit.spigot().getConfig().getBoolean("settings.bungeecord")) {
             getLogger().severe(String.valueOf(Bukkit.spigot().getConfig().getBoolean("settings.bungeecord")));
-            getLogger().severe("WooMinecraft doesn't support offLine mode");
+            getLogger().severe("TradePost doesn't support offLine mode");
             Bukkit.getPluginManager().disablePlugin(this);
             return;
         }
@@ -70,14 +70,14 @@ public final class WooMinecraft extends JavaPlugin {
         }
 
         // Load the commands.
-        getCommand("woo").setExecutor(new WooCommand());
+        getCommand("tradepost").setExecutor(new TradePostCommand());
 
         // Log when plugin is initialized.
         getLogger().info(this.getLang("log.com_init"));
 
         // Setup the scheduler
         BukkitRunner scheduler = new BukkitRunner(instance);
-        scheduler.runTaskTimerAsynchronously(instance, config.getInt("update_interval") * 20, config.getInt("update_interval") * 20);
+        scheduler.runTaskTimerAsynchronously(instance, config.getInt("update_interval") * 20L, config.getInt("update_interval") * 20L);
 
         // Log when plugin is fully enabled ( setup complete ).
         getLogger().info(this.getLang("log.enabled"));
@@ -117,11 +117,11 @@ public final class WooMinecraft extends JavaPlugin {
      */
     private void validateConfig() throws Exception {
 
-        if (1 > this.getConfig().getString("url").length()) {
+        if (this.getConfig().getString("url", "").isEmpty()) {
             throw new Exception("Server URL is empty, check config.");
         } else if (this.getConfig().getString("url").equals("http://playground.dev")) {
             throw new Exception("URL is still the default URL, check config.");
-        } else if (1 > this.getConfig().getString("key").length()) {
+        } else if (this.getConfig().getString("key", "").isEmpty()) {
             throw new Exception("Server Key is empty, this is insecure, check config.");
         }
     }

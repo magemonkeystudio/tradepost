@@ -1,16 +1,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.plugish.woominecraft</groupId>
-    <artifactId>WooMinecraft</artifactId>
+    <groupId>studio.magemonkey</groupId>
+    <artifactId>tradepost</artifactId>
 
     <version>1.4.6-${spigotVersion}</version>
 
-    <name>WooMinecraft</name>
+    <name>TradePost</name>
     <description>A WooCommerce Minecraft Bridge</description>
     <properties>
         <spigotVersion>1.20.1</spigotVersion>
-        <mainClass>${project.groupId}.${project.artifactId}</mainClass>
+        <mainClass>${project.groupId}.${project.artifactId}.TradePost</mainClass>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <build>
@@ -38,7 +38,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <finalName>${project.name}-${project.version}rc</finalName>
+                    <finalName>${project.name}-${project.version}</finalName>
                     <appendAssemblyId>false</appendAssemblyId>
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
@@ -97,9 +97,7 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.12.0</version>
-            <scope>compile</scope>
+            <version>3.17.0</version>
         </dependency>
-
     </dependencies>
 </project>

@@ -1,0 +1,32 @@
+package studio.magemonkey.tradepost.pojo;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
+import java.util.List;
+
+public class WMCProcessedOrders {
+
+    @SerializedName("processedOrders")
+    @Expose
+    private List<Integer> processedOrders = null;
+
+    public List<Integer> getProcessedOrders() {
+        return processedOrders;
+    }
+
+    public void setProcessedOrders(List<Integer> processedOrders) {
+        this.processedOrders = processedOrders;
+    }
+
+    public WMCProcessedOrders withProcessedOrders(List<Integer> processedOrders) {
+        this.processedOrders = processedOrders;
+        return this;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this).append("processedOrders", processedOrders).toString();
+    }
+}

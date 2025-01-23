@@ -5,7 +5,7 @@ general:
   reloaded: "Plugin neu geladen!"
   saved_conf: "Konfiguration gespeichert"
   key: "Schlüssel"
-  cpy_key: "Kopiere diesen Schlüssel und trage ihn in dem WooMinecraft Options-Panel in Wordpress ein"
+  cpy_key: "Kopiere diesen Schlüssel und trage ihn in dem TradePost Options-Panel in Wordpress ein"
   key_set: "Ihr Schlüssel ist bereits festgelegt - überprüfen Sie Ihre Konfiguration"
   none_avail: "Keine Einkäufe vorhanden - bitte versuchen Sie es später erneut."
   processed: "Alle Käufe verarbeitet."

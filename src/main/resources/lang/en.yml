@@ -5,7 +5,7 @@ general:
   reloaded: "Plugin reloaded!"
   saved_conf: "Saved Config"
   key: "Key"
-  cpy_key: "Copy this key and put it in your WooMinecraft options panel in WordPress"
+  cpy_key: "Copy this key and put it in your TradePost options panel in WordPress"
   key_set: "Your key is already set - check your config"
   none_avail: "No purchases available - please try again soon."
   processed: "All purchases processed."

@@ -1,19 +1,19 @@
-package com.plugish.woominecraft;
+package studio.magemonkey.tradepost;
 
 import org.bukkit.Bukkit;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class BukkitRunner extends BukkitRunnable {
 
-	public final WooMinecraft plugin;
+	public final TradePost plugin;
 
-	BukkitRunner(WooMinecraft plugin) {
+	BukkitRunner(TradePost plugin) {
 		this.plugin = plugin;
 	}
 
 	public void run() {
 		//force running in async// not main thread
-		Bukkit.getScheduler().runTaskAsynchronously(WooMinecraft.instance, () -> {
+		Bukkit.getScheduler().runTaskAsynchronously(TradePost.instance, () -> {
 			try {
 				plugin.check();
 			} catch (Exception e) {

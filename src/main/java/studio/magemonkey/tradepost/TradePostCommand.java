@@ -1,4 +1,4 @@
-package com.plugish.woominecraft;
+package studio.magemonkey.tradepost;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -16,28 +16,28 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class WooCommand implements TabExecutor {
+public class TradePostCommand implements TabExecutor {
 
-    public WooMinecraft plugin = WooMinecraft.instance;
-    private final String chatPrefix = ChatColor.translateAlternateColorCodes('&', "&5[&fWooMinecraft&5] ");
+    public TradePost plugin = TradePost.instance;
+    private final String chatPrefix = ChatColor.translateAlternateColorCodes('&', "&5[&fTradePost&5] ");
 
     // Hashmap for storing subcommand names and permissions for them
     private final HashMap<String, String> subCommands = new HashMap<>();
 
-    public WooCommand() {
+    public TradePostCommand() {
         // add future subcommands here for automatic tab completion
-        subCommands.put("help", "woo.admin");
-        subCommands.put("check", "woo.admin");
-        subCommands.put("ping", "woo.admin");
-        subCommands.put("debug", "woo.admin");
+        subCommands.put("help", "tradepost.admin");
+        subCommands.put("check", "tradepost.admin");
+        subCommands.put("ping", "tradepost.admin");
+        subCommands.put("debug", "tradepost.admin");
 
     }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length == 0) {
-            if (sender.hasPermission("woo.admin")) {
-                sender.sendMessage(chatPrefix + plugin.getLang("general.avail_commands") + ": /woo help");
+            if (sender.hasPermission("tradepost.admin")) {
+                sender.sendMessage(chatPrefix + plugin.getLang("general.avail_commands") + ": /tradepost help");
             } else {
                 sender.sendMessage(chatPrefix + plugin.getLang("general.not_authorized"));
             }
@@ -51,7 +51,7 @@ public class WooCommand implements TabExecutor {
                 helpSubcommand(sender);
             }
             else {
-                sender.sendMessage(chatPrefix + "Usage: /woo help");
+                sender.sendMessage(chatPrefix + "Usage: /tradepost help");
             }
             return true;
         } else if (args[0].equalsIgnoreCase("ping")) {
@@ -82,7 +82,7 @@ public class WooCommand implements TabExecutor {
     }
 
     private void checkSubcommand(CommandSender sender) {
-        if (!sender.hasPermission("woo.admin")) {
+        if (!sender.hasPermission("tradepost.admin")) {
             String msg = chatPrefix + ChatColor.translateAlternateColorCodes('&', plugin.getLang("general.not_authorized"));
             sender.sendMessage(msg);
             return;
@@ -115,7 +115,7 @@ public class WooCommand implements TabExecutor {
      * @param sender Who sent the message.
      */
     private void pingSubcommand(CommandSender sender, int length, String Url) {
-        if (!sender.hasPermission("woo.admin")) {
+        if (!sender.hasPermission("tradepost.admin")) {
             String msg = chatPrefix + ChatColor.translateAlternateColorCodes('&', plugin.getLang("general.not_authorized"));
             sender.sendMessage(msg);
             return;
@@ -147,7 +147,7 @@ public class WooCommand implements TabExecutor {
                     }
                     sender.sendMessage(msg);
                 } catch (IOException e) {
-                    WooMinecraft.instance.getLogger().severe(e.getMessage());
+                    TradePost.instance.getLogger().severe(e.getMessage());
                     sender.sendMessage(chatPrefix +ChatColor.DARK_RED+"Server Status: Failed");
                 }
 
@@ -173,16 +173,16 @@ public class WooCommand implements TabExecutor {
                     sender.sendMessage(msg);
                 } catch (IOException e) {
                     // send feedback for the sender
-                    WooMinecraft.instance.getLogger().severe(e.getMessage());
+                    TradePost.instance.getLogger().severe(e.getMessage());
                     sender.sendMessage(chatPrefix + ChatColor.DARK_RED + "Server Status: Failed");
                     if (plugin.isDebug()) {
-                        WooMinecraft.instance.getLogger().info(plugin.getConfig().getString("key"));
-                        WooMinecraft.instance.getLogger().info(plugin.getConfig().getString("url"));
+                        TradePost.instance.getLogger().info(plugin.getConfig().getString("key"));
+                        TradePost.instance.getLogger().info(plugin.getConfig().getString("url"));
                     }
                 }
                 try {
                     sender.sendMessage(chatPrefix + "Checking Rest Api Url");
-                    HttpURLConnection ping = (HttpURLConnection) WooMinecraft.instance.getSiteURL().openConnection();
+                    HttpURLConnection ping = (HttpURLConnection) TradePost.instance.getSiteURL().openConnection();
                     ping.setConnectTimeout(700);
                     ping.setReadTimeout(700);
                     ping.setRequestMethod("HEAD");
@@ -200,11 +200,11 @@ public class WooCommand implements TabExecutor {
                     }
                     sender.sendMessage(msg);
                 } catch (IOException e) {
-                    WooMinecraft.instance.getLogger().severe(e.getMessage());
+                    TradePost.instance.getLogger().severe(e.getMessage());
                     sender.sendMessage(chatPrefix + ChatColor.DARK_RED + "Server Status: Failed");
                     if (plugin.isDebug()) {
-                        WooMinecraft.instance.getLogger().info(plugin.getConfig().getString("key"));
-                        WooMinecraft.instance.getLogger().info(plugin.getConfig().getString("url"));
+                        TradePost.instance.getLogger().info(plugin.getConfig().getString("key"));
+                        TradePost.instance.getLogger().info(plugin.getConfig().getString("url"));
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -239,9 +239,9 @@ public class WooCommand implements TabExecutor {
 
         sender.sendMessage(chatPrefix +" Ver"+ descriptionFile.getVersion());
         sender.sendMessage(ChatColor.DARK_PURPLE + "By " + String.join( ",", descriptionFile.getAuthors() ) );
-        sender.sendMessage(ChatColor.DARK_PURPLE + "/woo help" +ChatColor.WHITE+ " Shows this Helpsite");
-        sender.sendMessage(ChatColor.DARK_PURPLE + "/woo check" +ChatColor.WHITE+ " Check for donations/orders");
-        sender.sendMessage(ChatColor.DARK_PURPLE + "/woo ping" +ChatColor.WHITE+ " Test server connection");
-        sender.sendMessage(ChatColor.DARK_PURPLE + "/woo debug" +ChatColor.WHITE+ " Enable/disable debugging");
+        sender.sendMessage(ChatColor.DARK_PURPLE + "/tradepost help" +ChatColor.WHITE+ " Shows this Helpsite");
+        sender.sendMessage(ChatColor.DARK_PURPLE + "/tradepost check" +ChatColor.WHITE+ " Check for donations/orders");
+        sender.sendMessage(ChatColor.DARK_PURPLE + "/tradepost ping" +ChatColor.WHITE+ " Test server connection");
+        sender.sendMessage(ChatColor.DARK_PURPLE + "/tradepost debug" +ChatColor.WHITE+ " Enable/disable debugging");
     }
 }
